@@ -1,27 +1,32 @@
-# Monorepo Workshop - Etappe 1
+# Monorepo Workshop - Etappe 2
 
 Diese README wird dich durch den Workshop begleiten und immer die nützlichen **Snippets** für die jeweils nächste Etappe bereitstellen.
 
-## Snippets für Etappe 2
+## Snippets für Etappe 3
 
-`package.json` im Root-Verzeichnis:
+`package.json` für das `ui`-Paket:
 
 ```json
 {
-  "name": "my-repo",
-  "workspaces": ["apps/*", "packages/*"]
+  "name": "@my-repo/ui",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    "./*": "./*"
+  }
 }
 ```
 
-Löschen der `node_modules`-Ordner und der `package-lock.json`-Dateien:
+Installation des `ui`-Pakets als Abhängigkeit in den Apps:
 
 ```bash
-rm -rf landing-page/node_modules web-app/node_modules
-rm -rf landing-page/package-lock.json web-app/package-lock.json
+npm install @my-repo/ui -w apps/landing-page
+npm install @my-repo/ui -w apps/web-app
 ```
 
-Installieren der Abhängigkeiten im Root-Verzeichnis:
+Starten der Entwicklungsumgebung (benutze zwei Terminals):
 
 ```bash
-npm install
+npm run dev -w apps/landing-page
+npm run dev -w apps/web-app
 ```
