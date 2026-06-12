@@ -12,6 +12,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@my-repo/ui": "^1.0.0",
     "astro": "^6.4.6"
   }
 }
